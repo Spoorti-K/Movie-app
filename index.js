@@ -10,6 +10,8 @@ const connect = mongoose
   .then(() => console.log("MongoDB Connection successful"))
   .catch((err) => console.log(err));
 
+require('dotenv').config();
+
 app.use(cookieParser());
 app.use(express.json());
 
@@ -33,6 +35,6 @@ if (process.env.NODE_ENV === "production") {
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server Running at ${port}`);
 });
